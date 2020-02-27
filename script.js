@@ -3,6 +3,7 @@ function queensAttack(n, k, y_q, x_q, obstacles) {
         this.y = y;
         this.x = x;
     }
+    
     var allpossiblesquare = [
         [],//left
         [],//right
@@ -14,8 +15,8 @@ function queensAttack(n, k, y_q, x_q, obstacles) {
         [],//downright
     ];
     
-    here we add the possible points in each direction for 
-    the main array of possibilities
+    // // here we add the possible points in each direction for 
+    // // the main array of possibilities
     for(var i = x_q-1 ;i >= 1 ;i--){
         allpossiblesquare[0].push(new Point(y_q,i))  
     }    
@@ -63,10 +64,20 @@ function queensAttack(n, k, y_q, x_q, obstacles) {
         }  
     }
     
-    
-    
-    
-    console.log((allpossiblesquare))
+    var pointsOfObstacles = [];
+    for(var i = 0; i < k; i++){
+        var P = new Point(obstacles[i][0],obstacles[i][1]);
+        pointsOfObstacles.push(P)
+    }
+    for(var i = 0; i < pointsOfObstacles.length; i++){
+        for(var j = 0; j < allpossiblesquare.length; j++){
+                   
+        }  
+    }
+    var avilablepoints = 0;
+    for(var i = 0; i < allpossiblesquare.length; i++){
+        avilablepoints = avilablepoints + allpossiblesquare[i].length
+    }
+    return avilablepoints
 }
-
-queensAttack(5,3,2,5,[]);
+(queensAttack(5,2,2,2,[[1,1],[2,1]]));
