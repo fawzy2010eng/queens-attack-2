@@ -63,21 +63,29 @@ function queensAttack(n, k, y_q, x_q, obstacles) {
             }
         }  
     }
-    
+    //create array represent the points of obstacles
     var pointsOfObstacles = [];
     for(var i = 0; i < k; i++){
         var P = new Point(obstacles[i][0],obstacles[i][1]);
         pointsOfObstacles.push(P)
     }
-    for(var i = 0; i < pointsOfObstacles.length; i++){
-        for(var j = 0; j < allpossiblesquare.length; j++){
-                   
-        }  
+    // here we subtract all the closed pathes
+    for(var o = 0; o < k; o++ ){
+        for(var i = 0; i < 8; i++){
+            for(var j = 0; j < allpossiblesquare[i].length; j++){
+                if((pointsOfObstacles[o].x == allpossiblesquare[i][j].x) && (pointsOfObstacles[o].y == allpossiblesquare[i][j].y))
+                {
+                    allpossiblesquare[i].splice(j) 
+                }
+            }  
+        }
     }
+    
     var avilablepoints = 0;
     for(var i = 0; i < allpossiblesquare.length; i++){
-        avilablepoints = avilablepoints + allpossiblesquare[i].length
+        avilablepoints = avilablepoints+allpossiblesquare[i].length
     }
+    
     return avilablepoints
 }
-(queensAttack(5,2,2,2,[[1,1],[2,1]]));
+// console.log(queensAttack(8,1,4,4,[[3,5]]));
