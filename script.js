@@ -64,8 +64,9 @@ function queensAttack(n, k, y_q, x_q, obstacles) {
         }  
     }
     //create array represent the points of obstacles
+    var 
     var pointsOfObstacles = [];
-    for(var i = 0; i < k; i++){
+    for(var i = 0; i < k; i=i+2){
         var P = new Point(obstacles[i][0],obstacles[i][1]);
         pointsOfObstacles.push(P)
     }
