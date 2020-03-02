@@ -1,9 +1,7 @@
-function queensAttack(n, k, y_q, x_q, obstacles) {
-    function Point(y,x){
+function queensAttack(n, k, y_q, x_q, obstacles) {function Point(y,x){
         this.y = y;
-        this.x = x;
+        this.x = x
     }
-    
     var allpossiblesquare = [
         [],//left
         [],//right
@@ -63,12 +61,11 @@ function queensAttack(n, k, y_q, x_q, obstacles) {
             }
         }  
     }
-    //create array represent the points of obstacles
-    var 
+    var array = Array.from(obstacles);
     var pointsOfObstacles = [];
-    for(var i = 0; i < k; i=i+2){
-        var P = new Point(obstacles[i][0],obstacles[i][1]);
-        pointsOfObstacles.push(P)
+    for(var i = 0; i < k*2; i = i+2){
+        var p = new Point(array[i],array[i+1])
+        pointsOfObstacles.push(p)
     }
     // here we subtract all the closed pathes
     for(var o = 0; o < k; o++ ){
